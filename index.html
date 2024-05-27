@@ -60,8 +60,8 @@
     .toggle-button {
       position: absolute;
       border-radius: 10px;
-      top: 20px;
-      right: 20px;
+      bottom: 20px;
+      left: 20px;
       padding: 10px 20px;
       background: #000;
       color: #fff;
@@ -79,17 +79,23 @@
   </style>
 </head>
 <body>
-  <button class="toggle-button" onclick="toggleDarkMode()">Mode</button>
+  <!-- <button class="toggle-button" onclick="toggleDarkMode()">Mode</button> -->
   <h1>GPT-4o</h1>
   <p>在原生基础上支持图片、文档上传和联网搜索</p>
   <div class="chat-container" id="chat-container">
     点击右下角按钮开始聊天
   </div>
   <div class="footer">
-    Powered by CozeWebSDK
+    Powered by gpt-4o
   </div>
   <script src="https://sf-cdn.coze.com/obj/unpkg-va/flow-platform/chat-app-sdk/0.1.0-beta.2/libs/oversea/index.js"></script>
   <script>
+    function getLayout() {
+      const userAgent = navigator.userAgent.toLowerCase();
+      const isMobile = /mobile|android|iphone|ipad|phone/.test(userAgent);
+      return isMobile ? 'mobile' : 'pc';
+    }
+
     new CozeWebSDK.WebChatClient({
       config: {
         bot_id: '7363122563914432520',
@@ -97,7 +103,7 @@
       componentProps: {
         title: 'GPT-4o',
         lang: 'zh-CN',
-        layout: 'mobile'
+        layout: getLayout()
       },
     }).mount('#chat-container');
 
