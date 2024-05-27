@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GPT-4o</title>
+  <link rel="icon" href="icon.png" type="image/x-icon">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: #fff;
+      color: #000;
+      text-align: center;
+      transition: background 0.3s, color 0.3s;
+    }
+    h1 {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+    .chat-container {
+      cursor: pointer;
+      width: 100%;
+      max-width: 500px;
+      background: #f9f9f9;
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: background 0.3s, box-shadow 0.3s, transform 0.5s;
+    }
+    .chat-container:hover {
+        scale: 1.05;
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+    }
+    .footer {
+      margin-top: auto;
+      padding: 10px;
+      font-size: 0.9rem;
+      color: rgba(0, 0, 0, 0.6);
+      transition: color 0.3s;
+    }
+    .dark-mode {
+      background: #000;
+      color: #fff;
+    }
+    .dark-mode .chat-container {
+      background: #333;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+    .dark-mode .footer {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    .toggle-button {
+      position: absolute;
+      border-radius: 10px;
+      top: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background: #000;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+    }
+    .dark-mode .toggle-button {
+      background: #fff;
+      color: #000;
+    }
+    p {
+        font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <button class="toggle-button" onclick="toggleDarkMode()">Mode</button>
+  <h1>GPT-4o</h1>
+  <p>在原生基础上支持图片、文档上传和联网搜索</p>
+  <div class="chat-container" id="chat-container">
+    点击右下角按钮开始聊天
+  </div>
+  <div class="footer">
+    Powered by CozeWebSDK
+  </div>
+  <script src="https://sf-cdn.coze.com/obj/unpkg-va/flow-platform/chat-app-sdk/0.1.0-beta.2/libs/oversea/index.js"></script>
+  <script>
+    new CozeWebSDK.WebChatClient({
+      config: {
+        bot_id: '7363122563914432520',
+      },
+      componentProps: {
+        title: 'GPT-4o',
+        lang: 'zh-CN',
+        layout: 'mobile'
+      },
+    }).mount('#chat-container');
+
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+  </script>
+</body>
+</html>
