@@ -101,9 +101,9 @@
     点击右下角 icon 开始聊天
   </div>
   <div class="footer">
-    2024 © aircrushin - indieAI
+    2024 © aircrushin
   </div>
-  <script src="https://sf-cdn.coze.com/obj/unpkg-va/flow-platform/chat-app-sdk/0.1.0-beta.2/libs/oversea/index.js"></script>
+  <script src="https://sf-cdn.coze.com/obj/unpkg-va/flow-platform/chat-app-sdk/0.1.0-beta.4/libs/oversea/index.js"></script>
   <script>
     function getLayout() {
       const userAgent = navigator.userAgent.toLowerCase();
@@ -113,12 +113,10 @@
 
     new CozeWebSDK.WebChatClient({
       config: {
-        bot_id: '7363122563914432520',
+        bot_id: '7383499239516569605',
       },
       componentProps: {
-        title: 'GPT-4o',
-        lang: 'zh-CN',
-        layout: 'mobile'
+        title: 'Coze',
       },
     }).mount('#chat-container');
 
